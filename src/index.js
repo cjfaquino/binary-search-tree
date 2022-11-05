@@ -48,11 +48,7 @@ const tree = new Tree(sorted);
 
 tree.insert(2);
 tree.delete(67);
+tree.levelOrder();
 
-console.log(tree, tree.find(1), tree.find(6));
+console.log(tree, tree.find(1), tree.find(6), tree.levelOrder());
 prettyPrint(tree.root);
-
-const empty = new Tree();
-
-empty.insert(2);
-console.log(empty);

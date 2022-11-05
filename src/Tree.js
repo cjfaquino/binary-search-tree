@@ -68,4 +68,20 @@ export default class Tree {
 
     return node;
   }
+
+  levelOrder() {
+    const node = this.root;
+    if (node === null) return null;
+    const q = [node];
+    const print = [];
+
+    while (q.length) {
+      const frontQ = q.shift();
+      print.push(frontQ.data);
+      if (frontQ.left !== null) q.push(frontQ.left);
+      if (frontQ.right !== null) q.push(frontQ.right);
+    }
+
+    return print;
+  }
 }
