@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import Node from './Node.js';
 
 export default class Tree {
@@ -28,5 +29,34 @@ export default class Tree {
     else if (value > node.data) node.right = this.insertRec(value, node.right);
 
     return node;
+  }
+
+  delete(value) {
+    this.root = this.deleteRec(value, this.root);
+  }
+
+  deleteRec(value, node) {
+    if (node === null) return node;
+
+    if (value < node.data) node.left = this.deleteRec(value, node.left);
+    else if (value > node.data) node.right = this.deleteRec(value, node.right);
+    else {
+      // one or no branches
+      if (node.left === null) return node.right;
+      if (node.right === null) return node.left;
+
+      // two braches
+      node.data = this.minValue(node.right);
+      node.right = this.deleteRec(node.data, node.right);
+    }
+
+    return node;
+  }
+
+  minValue(node = this.root) {
+    while (node.left != null) {
+      node = node.left;
+    }
+    return node.data;
   }
 }
