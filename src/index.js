@@ -43,3 +43,7 @@ const removeDupes = (array) => [...new Set(array)];
 const array = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
 const uniqueArry = removeDupes(array);
 const sorted = mergeSort(uniqueArry);
+
+const tree = new Tree(sorted);
+console.log(tree);
+prettyPrint(tree.root);
