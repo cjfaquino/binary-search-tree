@@ -1,0 +1,27 @@
+{
+  "name": "binary-search-tree",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cjfaquino/binary-search-tree.git"
+  },
+  "keywords": [],
+  "author": "Christian Aquino",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cjfaquino/binary-search-tree/issues"
+  },
+  "homepage": "https://github.com/cjfaquino/binary-search-tree#readme",
+  "devDependencies": {
+    "eslint": "^8.26.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "prettier": "2.7.1"
+  }
+}
