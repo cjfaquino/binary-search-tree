@@ -59,4 +59,13 @@ export default class Tree {
     }
     return node.data;
   }
+
+  find(value, node = this.root) {
+    if (node === null) return 'none';
+
+    if (value < node.data) node = this.find(value, node.left);
+    else if (value > node.data) node = this.find(value, node.right);
+
+    return node;
+  }
 }

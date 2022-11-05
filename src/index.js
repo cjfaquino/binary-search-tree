@@ -49,7 +49,7 @@ const tree = new Tree(sorted);
 tree.insert(2);
 tree.delete(67);
 
-console.log(tree);
+console.log(tree, tree.find(1), tree.find(6));
 prettyPrint(tree.root);
 
 const empty = new Tree();
