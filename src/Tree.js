@@ -16,4 +16,17 @@ export default class Tree {
 
     return node;
   }
+
+  insert(value) {
+    this.root = this.insertRec(value, this.root);
+  }
+
+  insertRec(value, node) {
+    if (node === null) return new Node(value);
+
+    if (value < node.data) node.left = this.insertRec(value, node.left);
+    else if (value > node.data) node.right = this.insertRec(value, node.right);
+
+    return node;
+  }
 }

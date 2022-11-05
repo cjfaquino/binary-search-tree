@@ -45,5 +45,11 @@ const uniqueArry = removeDupes(array);
 const sorted = mergeSort(uniqueArry);
 
 const tree = new Tree(sorted);
+
+tree.insert(2);
 console.log(tree);
 prettyPrint(tree.root);
+
+const empty = new Tree();
+empty.insert(2);
+console.log(empty);
