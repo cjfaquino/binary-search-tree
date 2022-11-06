@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 import Tree from './Tree.js';
 
 const prettyPrint = (node, prefix = '', isLeft = true) => {
@@ -48,7 +50,21 @@ const tree = new Tree(sorted);
 
 tree.insert(2);
 tree.delete(67);
-tree.levelOrder();
 
-console.log(tree, tree.find(1), tree.find(6), tree.levelOrder());
+console.log(
+  tree,
+  'Find 1',
+  tree.find(1),
+  'Find 6',
+  tree.find(6),
+  'Level Order',
+  tree.levelOrder(),
+  'Preorder',
+  tree.preOrder(),
+  'InOrder',
+  tree.inOrder(),
+  'Postorder',
+  tree.postOrder(),
+  tree.postOrder() // check for duplication of data in array
+);
 prettyPrint(tree.root);
