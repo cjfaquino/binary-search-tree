@@ -2,16 +2,6 @@
 
 import Tree from './Tree.js';
 
-const prettyPrint = (node, prefix = '', isLeft = true) => {
-  if (node.right !== null) {
-    prettyPrint(node.right, `${prefix}${isLeft ? '│   ' : '    '}`, false);
-  }
-  console.log(`${prefix}${isLeft ? '└── ' : '┌── '}${node.data}`);
-  if (node.left !== null) {
-    prettyPrint(node.left, `${prefix}${isLeft ? '    ' : '│   '}`, true);
-  }
-};
-
 const array = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
 
 const tree = new Tree(array);
@@ -25,7 +15,7 @@ console.log(
 );
 console.log('Array gets sorted and removed of duplicates');
 
-prettyPrint(tree.root);
+tree.prettyPrint();
 
 tree.insert(2);
 tree.insert(199);
@@ -38,7 +28,7 @@ tree.delete(4);
 
 console.log('insert(2), insert(199)... - Insert 2, 199, 1000, 200, 222, 201');
 console.log('delete(5), delete(4) - Delete 5, 4');
-prettyPrint(tree.root);
+tree.prettyPrint();
 console.log(
   '\n',
   'find(1)',
@@ -74,4 +64,4 @@ console.log(
   tree.isBalanced()
 );
 
-prettyPrint(tree.root);
+tree.prettyPrint();
