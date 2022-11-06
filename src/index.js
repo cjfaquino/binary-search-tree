@@ -16,6 +16,17 @@ const array = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
 
 const tree = new Tree(array);
 
+console.log(`Start from unsorted array with duplicates ${array}`);
+console.log(
+  '\n',
+  `const newTree = new Tree(array)\n`,
+  'or const newTree = new Tree()\n',
+  'newTree.buildTree(array)'
+);
+console.log('Array gets sorted and removed of duplicates');
+
+prettyPrint(tree.root);
+
 tree.insert(2);
 tree.insert(199);
 tree.insert(1000);
@@ -23,39 +34,43 @@ tree.insert(200);
 tree.insert(222);
 tree.insert(201);
 tree.delete(5);
+tree.delete(4);
 
+console.log('insert(2), insert(199)... - Insert 2, 199, 1000, 200, 222, 201');
+console.log('delete(5), delete(4) - Delete 5, 4');
+prettyPrint(tree.root);
 console.log(
-  tree,
-  'Find 1',
+  '\n',
+  'find(1)',
   tree.find(1),
-  'Find 6',
+  'find(6',
   tree.find(6),
-  'Level Order',
+  'levelOrder()',
   tree.levelOrder(),
-  'Preorder',
+  'preOrder()',
   tree.preOrder(),
-  'InOrder',
+  'inOrder()',
   tree.inOrder(),
-  'Postorder',
+  'postOrder()',
   tree.postOrder(),
-  tree.postOrder(), // check for duplication of data in array
-  'Height of root',
+  'height() - Height of root',
   tree.height(),
-  'Height of 1',
+  'height(1) - Height of 1',
   tree.height(1),
-  'Depth of root',
+  'depth() - Depth of root',
   tree.depth(),
-  'Depth of 1',
+  'depth(1) - Depth of 1',
   tree.depth(1),
-  'Is tree balanced?',
+  'isBalanced()',
   tree.isBalanced()
 );
-prettyPrint(tree.root);
 
 tree.rebalance();
 console.log(
-  'Rebalancing tree',
-  'Rebalcanced tree is balanced?',
+  '\n',
+  'rebalance() - Rebalancing tree\n',
+  'isBalanced() - Rebalcanced tree is balanced?',
+
   tree.isBalanced()
 );
 
