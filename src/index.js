@@ -49,7 +49,12 @@ const sorted = mergeSort(uniqueArry);
 const tree = new Tree(sorted);
 
 tree.insert(2);
-tree.delete(67);
+tree.insert(199);
+tree.insert(1000);
+tree.insert(200);
+tree.insert(222);
+tree.insert(201);
+tree.delete(5);
 
 console.log(
   tree,
@@ -73,6 +78,8 @@ console.log(
   'Depth of root',
   tree.depth(),
   'Depth of 1',
-  tree.depth(1)
+  tree.depth(1),
+  'Is tree balanced',
+  tree.isBalanced()
 );
 prettyPrint(tree.root);

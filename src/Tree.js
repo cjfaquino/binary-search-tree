@@ -142,4 +142,16 @@ export default class Tree {
     }
     return dist;
   }
+
+  isBalanced() {
+    const node = this.root;
+    const leftHeight = this.#findHeight(node.data, node.left);
+    const rightHeight = this.#findHeight(node.data, node.right);
+
+    console.log(leftHeight, rightHeight);
+    if (leftHeight - rightHeight > 1 || leftHeight - rightHeight < -1) {
+      return false;
+    }
+    return true;
+  }
 }
