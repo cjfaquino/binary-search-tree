@@ -20,27 +20,27 @@ export default class Tree {
   }
 
   insert(value) {
-    this.root = this.insertRec(value, this.root);
+    this.root = this.#insertRec(value, this.root);
   }
 
-  insertRec(value, node) {
+  #insertRec(value, node) {
     if (node === null) return new Node(value);
 
-    if (value < node.data) node.left = this.insertRec(value, node.left);
-    else if (value > node.data) node.right = this.insertRec(value, node.right);
+    if (value < node.data) node.left = this.#insertRec(value, node.left);
+    else if (value > node.data) node.right = this.#insertRec(value, node.right);
 
     return node;
   }
 
   delete(value) {
-    this.root = this.deleteRec(value, this.root);
+    this.root = this.#deleteRec(value, this.root);
   }
 
-  deleteRec(value, node) {
+  #deleteRec(value, node) {
     if (node === null) return node;
 
-    if (value < node.data) node.left = this.deleteRec(value, node.left);
-    else if (value > node.data) node.right = this.deleteRec(value, node.right);
+    if (value < node.data) node.left = this.#deleteRec(value, node.left);
+    else if (value > node.data) node.right = this.#deleteRec(value, node.right);
     else {
       // one or no branches
       if (node.left === null) return node.right;
@@ -48,7 +48,7 @@ export default class Tree {
 
       // two braches
       node.data = this.minValue(node.right);
-      node.right = this.deleteRec(node.data, node.right);
+      node.right = this.#deleteRec(node.data, node.right);
     }
 
     return node;
