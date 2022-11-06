@@ -86,52 +86,28 @@ export default class Tree {
     return print;
   }
 
-  preOrderArr = [];
-
-  inOrderArr = [];
-
-  postOrderArr = [];
-
-  preOrder() {
-    this.preOrderArr.length = 0;
-    this.preOrderArr = this.#setPreOrder();
-    return this.preOrderArr;
-  }
-
-  inOrder() {
-    this.inOrderArr.length = 0;
-    this.inOrderArr = this.#setInOrder();
-    return this.inOrderArr;
-  }
-
-  postOrder() {
-    this.postOrderArr.length = 0;
-    this.postOrderArr = this.#setPostOrder();
-    return this.postOrderArr;
-  }
-
-  #setPreOrder(node = this.root) {
+  preOrder(node = this.root, array = []) {
     if (node === null) return node;
-    this.preOrderArr.push(node.data);
-    this.#setPreOrder(node.left);
-    this.#setPreOrder(node.right);
-    return this.preOrderArr;
+    array.push(node.data);
+    this.preOrder(node.left, array);
+    this.preOrder(node.right, array);
+    return array;
   }
 
-  #setInOrder(node = this.root) {
+  inOrder(node = this.root, array = []) {
     if (node === null) return node;
-    this.#setInOrder(node.left);
-    this.inOrderArr.push(node.data);
-    this.#setInOrder(node.right);
-    return this.inOrderArr;
+    this.inOrder(node.left, array);
+    array.push(node.data);
+    this.inOrder(node.right, array);
+    return array;
   }
 
-  #setPostOrder(node = this.root) {
+  postOrder(node = this.root, array = []) {
     if (node === null) return node;
-    this.#setPostOrder(node.left);
-    this.#setPostOrder(node.right);
-    this.postOrderArr.push(node.data);
-    return this.postOrderArr;
+    this.postOrder(node.left, array);
+    this.postOrder(node.right, array);
+    array.push(node.data);
+    return array;
   }
 
   #height = -1;
