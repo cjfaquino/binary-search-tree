@@ -1,3 +1,4 @@
+/* eslint-disable no-cond-assign */
 /* eslint-disable no-param-reassign */
 import Node from './Node.js';
 
@@ -93,43 +94,76 @@ export default class Tree {
 
   preOrder() {
     this.preOrderArr.length = 0;
-    this.preOrderArr = this.setPreOrder();
+    this.preOrderArr = this.#setPreOrder();
     return this.preOrderArr;
   }
 
   inOrder() {
     this.inOrderArr.length = 0;
-    this.inOrderArr = this.setInOrder();
+    this.inOrderArr = this.#setInOrder();
     return this.inOrderArr;
   }
 
   postOrder() {
     this.postOrderArr.length = 0;
-    this.postOrderArr = this.setPostOrder();
+    this.postOrderArr = this.#setPostOrder();
     return this.postOrderArr;
   }
 
-  setPreOrder(node = this.root) {
+  #setPreOrder(node = this.root) {
     if (node === null) return node;
     this.preOrderArr.push(node.data);
-    this.setPreOrder(node.left);
-    this.setPreOrder(node.right);
+    this.#setPreOrder(node.left);
+    this.#setPreOrder(node.right);
     return this.preOrderArr;
   }
 
-  setInOrder(node = this.root) {
+  #setInOrder(node = this.root) {
     if (node === null) return node;
-    this.setInOrder(node.left);
+    this.#setInOrder(node.left);
     this.inOrderArr.push(node.data);
-    this.setInOrder(node.right);
+    this.#setInOrder(node.right);
     return this.inOrderArr;
   }
 
-  setPostOrder(node = this.root) {
+  #setPostOrder(node = this.root) {
     if (node === null) return node;
-    this.setPostOrder(node.left);
-    this.setPostOrder(node.right);
+    this.#setPostOrder(node.left);
+    this.#setPostOrder(node.right);
     this.postOrderArr.push(node.data);
     return this.postOrderArr;
+  }
+
+  #height = -1;
+
+  #findHeight(value, node) {
+    if (node === null) return -1;
+    const leftHeight = this.#findHeight(value, node.left);
+    const rightHeight = this.#findHeight(value, node.right);
+
+    const num = Math.max(leftHeight, rightHeight) + 1;
+
+    if (value === node.data) {
+      this.#height = num;
+    }
+    return num;
+  }
+
+  height(value = this.root.data, node = this.root) {
+    this.#findHeight(value, node);
+    return this.#height;
+  }
+
+  depth(value = this.root.data, node = this.root) {
+    if (node === null) return -1;
+    let dist = -1;
+    if (
+      node.data === value ||
+      (dist = this.depth(value, node.left)) >= 0 ||
+      (dist = this.depth(value, node.right)) >= 0
+    ) {
+      return dist + 1;
+    }
+    return dist;
   }
 }

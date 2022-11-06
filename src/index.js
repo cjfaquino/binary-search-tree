@@ -65,6 +65,14 @@ console.log(
   tree.inOrder(),
   'Postorder',
   tree.postOrder(),
-  tree.postOrder() // check for duplication of data in array
+  tree.postOrder(), // check for duplication of data in array
+  'Height of root',
+  tree.height(),
+  'Height of 1',
+  tree.height(1),
+  'Depth of root',
+  tree.depth(),
+  'Depth of 1',
+  tree.depth(1)
 );
 prettyPrint(tree.root);
