@@ -79,7 +79,16 @@ console.log(
   tree.depth(),
   'Depth of 1',
   tree.depth(1),
-  'Is tree balanced',
+  'Is tree balanced?',
   tree.isBalanced()
 );
+prettyPrint(tree.root);
+
+tree.rebalance();
+console.log(
+  'Rebalancing tree',
+  'Rebalcanced tree is balanced?',
+  tree.isBalanced()
+);
+
 prettyPrint(tree.root);

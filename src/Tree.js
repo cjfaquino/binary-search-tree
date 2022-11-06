@@ -148,10 +148,17 @@ export default class Tree {
     const leftHeight = this.#findHeight(node.data, node.left);
     const rightHeight = this.#findHeight(node.data, node.right);
 
-    console.log(leftHeight, rightHeight);
     if (leftHeight - rightHeight > 1 || leftHeight - rightHeight < -1) {
       return false;
     }
     return true;
+  }
+
+  rebalance(root = this.root) {
+    if (!this.isBalanced()) {
+      const newArr = this.inOrder();
+      this.root = this.buildTree(newArr);
+    }
+    return root;
   }
 }
