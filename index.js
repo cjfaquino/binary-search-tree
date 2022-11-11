@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 
-import Tree from './Tree.js';
+// import Tree from './Tree.js';
+const Tree = require('./Tree');
 
 const array = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
 
@@ -43,13 +44,13 @@ console.log(
   tree.inOrder(),
   'postOrder()',
   tree.postOrder(),
-  'height() - Height of root',
+  'height() - Height of root:',
   tree.height(),
-  'height(1) - Height of 1',
+  'height(1) - Height of 1:',
   tree.height(1),
-  'depth() - Depth of root',
+  'depth() - Depth of root:',
   tree.depth(),
-  'depth(1) - Depth of 1',
+  'depth(1) - Depth of 1:',
   tree.depth(1),
   'isBalanced()',
   tree.isBalanced()

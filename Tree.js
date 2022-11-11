@@ -1,9 +1,12 @@
 /* eslint-disable no-cond-assign */
 /* eslint-disable no-param-reassign */
-import { mergeSort, removeDupes } from './arrayFunc.js';
-import Node from './Node.js';
+// import { mergeSort, removeDupes } from './arrayFunc.js';
 
-export default class Tree {
+// import Node from './Node.js';
+const { mergeSort, removeDupes } = require('./arrayFunc');
+const Node = require('./Node');
+
+class Tree {
   constructor(array) {
     this.root = array ? this.buildTree(array) : null;
   }
@@ -184,3 +187,5 @@ export default class Tree {
     }
   };
 }
+
+module.exports = Tree;

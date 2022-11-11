@@ -14,7 +14,7 @@ const merge = (sortedLeft, sortedRight) => {
   return [...newArr, ...sortedLeft, ...sortedRight];
 };
 
-export const mergeSort = (array) => {
+const mergeSort = (array) => {
   if (array.length < 2) return array;
 
   // split array
@@ -26,4 +26,6 @@ export const mergeSort = (array) => {
   return merge(mergeSort(leftArr), mergeSort(rightArr));
 };
 
-export const removeDupes = (array) => [...new Set(array)];
+const removeDupes = (array) => [...new Set(array)];
+
+module.exports = { mergeSort, removeDupes };
