@@ -11,8 +11,7 @@ console.log(`Start from unsorted array with duplicates ${array}`);
 console.log(
   '\n',
   `const newTree = new Tree(array)\n`,
-  'or const newTree = new Tree()\n',
-  'newTree.buildTree(array)'
+  'or newTree.buildTree(array)\n'
 );
 console.log('Array gets sorted and removed of duplicates');
 
@@ -31,28 +30,30 @@ console.log('insert(2), insert(199)... - Insert 2, 199, 1000, 200, 222, 201');
 console.log('delete(5), delete(4) - Delete 5, 4');
 tree.prettyPrint();
 console.log(
-  '\n',
-  'find(1)',
+  '\nfind(1)',
   tree.find(1),
-  'find(6',
+  '\nfind(6',
   tree.find(6),
+  '\nheight() - Height of root:',
+  tree.height(),
+  '\nheight(1) - Height of 1:',
+  tree.height(1),
+  '\ndepth() - Depth of root:',
+  tree.depth(),
+  '\ndepth(1) - Depth of 1:',
+  tree.depth(1)
+);
+
+console.log(
   'levelOrder()',
   tree.levelOrder(),
-  'preOrder()',
+  '\npreOrder()',
   tree.preOrder(),
-  'inOrder()',
+  '\ninOrder()',
   tree.inOrder(),
-  'postOrder()',
+  '\npostOrder()',
   tree.postOrder(),
-  'height() - Height of root:',
-  tree.height(),
-  'height(1) - Height of 1:',
-  tree.height(1),
-  'depth() - Depth of root:',
-  tree.depth(),
-  'depth(1) - Depth of 1:',
-  tree.depth(1),
-  'isBalanced()',
+  '\nisBalanced()',
   tree.isBalanced()
 );
 

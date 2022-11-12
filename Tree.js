@@ -32,6 +32,7 @@ class Tree {
 
   insert(value) {
     this.root = this.#insertRec(value, this.root);
+    return this.root;
   }
 
   #insertRec(value, node) {
@@ -45,6 +46,7 @@ class Tree {
 
   delete(value) {
     this.root = this.#deleteRec(value, this.root);
+    return this.root;
   }
 
   #deleteRec(value, node) {
